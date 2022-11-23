@@ -1,9 +1,7 @@
 import React from "react";
-import logo from "./logo.svg";
-import "./App.css";
 
 function App() {
-  return <div>Todo App</div>;
+  return <div className="container">Todo App</div>;
 }
 
 export default App;
