@@ -9,8 +9,11 @@ export const TodoList = ({ todos }: todoListProps) => {
   return (
     <>
       {todos?.map((todo) => (
-        <ul key={todo.id} className="list-group list-group-flush">
-          <li className="list-group-item">{todo.id}</li>
+        <ul
+          key={todo.id}
+          className="list-group list-group-flush d-flex flex-row justify-content-between border-bottom mt-3 w-50 mx-auto"
+        >
+          <li className="list-group-item border-0">{todo.id}</li>
           <li className="list-group-item">{todo.title}</li>
         </ul>
       ))}
