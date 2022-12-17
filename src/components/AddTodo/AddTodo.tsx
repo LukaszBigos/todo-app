@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 
 type addTodoProps = {
   handleTodo: (todo: string, id: number) => void;
@@ -14,6 +14,14 @@ export const AddTodo = ({ handleTodo }: addTodoProps) => {
       setId((prevId) => prevId + 1);
     }
   };
+
+  const handleKeyDown = (event: KeyboardEvent): void => {
+    if (event.key === "Enter") {
+      handleSubmit(todo, id);
+    }
+    return;
+  };
+
   return (
     <div className="container-fluid d-flex flex-row justify-content-around align-items-center	mt-4">
       <input
@@ -21,7 +29,8 @@ export const AddTodo = ({ handleTodo }: addTodoProps) => {
         type="text"
         placeholder="Enter new todos"
         onChange={(e: ChangeEvent<HTMLInputElement>) => setTodo(e.target.value)}
-        value={todo || "	"}
+        onKeyDown={handleKeyDown}
+        value={todo || ""}
       />
       <button
         disabled={todo === ""}
