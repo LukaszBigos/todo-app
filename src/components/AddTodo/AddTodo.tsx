@@ -1,15 +1,15 @@
 import React, { ChangeEvent, KeyboardEvent, useState } from "react";
 
 type addTodoProps = {
-  handleTodo: (todo: string, id: number) => void;
+  handleAddingTodo: (todo: string, id: number) => void;
 };
 
-export const AddTodo = ({ handleTodo }: addTodoProps) => {
+export const AddTodo = ({ handleAddingTodo }: addTodoProps) => {
   const [todo, setTodo] = useState<string>("");
   const [id, setId] = useState<number>(1);
   const handleSubmit = (todo: string, id: number) => {
     if (todo) {
-      handleTodo(todo, id);
+      handleAddingTodo(todo, id);
       setTodo("");
       setId((prevId) => prevId + 1);
     }
